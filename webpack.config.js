@@ -32,3 +32,14 @@ use: ['style-loader', 'css-loader'],
 ]
 }
 }
+
+
+
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+// Under plugins, add:
+new MiniCssExtractPlugin(),
+// Under module rules, add: 
+{
+test: /\.[s]css$/,
+use: [MiniCssExtractPlugin.loader,'style-loader', 'css-loader', 'sass-loader'],
+}

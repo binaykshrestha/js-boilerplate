@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "Javascript development environment",
   "author": "Binay Shrestha",
-  "scripts": {},
+  "scripts": {
+    "start": "babel-node server/server.js",
+    "lint": "eslint  ./client",
+    "clean-dist": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm-run-all clean-dist test lint",
+    "build": "babel-node scripts/build.js",
+    "postbuild": "babel-node scripts/distServer.js"
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -12,11 +19,15 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.2",
+    "cors": "^2.8.4",
     "css-loader": "^5.2.4",
+    "express": "^4.16.3",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.6.0",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.7"
+    "webpack-dev-server": "^3.11.2"
   }
 }
